@@ -27,6 +27,23 @@
 	index.html 整个项目的入口文件，将会引用我们的根组件 App.vue
 	main.js 入口文件的 js 逻辑，在 webpack 打包之后将被注入到 index.html 中
 
+
+
+	├── index.html
+	├── main.js
+	├── api
+	│   └── ... # 抽取出API请求
+	├── components
+	│   ├── App.vue
+	│   └── ...
+	└── store
+	    ├── index.js          # 我们组装模块并导出 store 的地方
+	    ├── actions.js        # 根级别的 action
+	    ├── mutations.js      # 根级别的 mutation
+	    └── modules
+	        ├── cart.js       # 购物车模块
+	        └── products.js   # 产品模块
+
 ##[Vue.js 源码学习笔记](http://www.open-open.com/lib/view/open1439344021458.html)
 
 
@@ -41,10 +58,22 @@
 
 ***VueX 是一个专门为 Vue.js 应用设计的状态管理架构***
 
-原（无VueX）: 所有组件 各自 的状态，由自已处理
-现（有VueX）: 所有组件 所有 的状态，由VueX处理
+	原（无VueX）: 所有组件 各自 的状态，由自已处理
+	现（有VueX）: 所有组件 所有 的状态，由VueX处理
 
-优点：方便了各组件状态的交互与传递
+	优点：方便了各组件状态的交互与传递
+
+	格式：module 里定义 'store' 和 'mutations'。
+		store : 是我们正常要维护的状态数据。
+		mutations: 是操作和维护 store 的处理
+
+
+	code
+
+	new Vuex.Store({
+		state:{},
+		mutations:{}
+	})
 
 eg.
 
