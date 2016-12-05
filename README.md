@@ -53,7 +53,19 @@
 	vue.extend 是新建 vue 组件，使用依赖于 vue 对象。
 
 
-##Vuex 
+##[Vuex 笔记](http://zhenyong.site/2016/07/30/vuex-q-and-a/)
+
+[用 Vuex 构建一个笔记应用](http://www.tuicool.com/articles/qUzMN3Y)
+
+	Vuex 把状态分成 组件内部状态 和 应用级别状态 ：
+
+	组件内部状态：仅在一个组件内使用的状态(data 字段)
+
+	应用级别状态：多个组件共用的状态
+	
+
+
+[vuex进阶目录](https://github.com/vuejs/vuex/blob/master/docs/zh-cn/SUMMARY.md)
 
 
 ***VueX 是一个专门为 Vue.js 应用设计的状态管理架构***
