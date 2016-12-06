@@ -55,6 +55,13 @@
 
 ##[Vuex 笔记](http://zhenyong.site/2016/07/30/vuex-q-and-a/)
 
+
+*VueX*
+
+```
+VueX 使用了大量的 es6 的语法，而这需要自己在处理时 在编译配置工具中添加 es6 处理配置 babel
+```
+
 [用 Vuex 构建一个笔记应用](http://www.tuicool.com/articles/qUzMN3Y)
 
 	Vuex 把状态分成 组件内部状态 和 应用级别状态 ：
