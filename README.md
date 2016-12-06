@@ -67,6 +67,10 @@
 
 [vuex进阶目录](https://github.com/vuejs/vuex/blob/master/docs/zh-cn/SUMMARY.md)
 
+[Vuex 教程](http://vuex.vuejs.org/zh-cn/)
+
+[VueX Book案例](https://github.com/coligo-io/notes-app-vuejs-vuex)
+
 
 ***VueX 是一个专门为 Vue.js 应用设计的状态管理架构***
 
@@ -323,3 +327,73 @@ new Vue({
 Vue.component("parent-component", parent);
 
 
+
+#### Vue 组件的几种写法
+
+
+*第一种（内置html）*
+
+```
+Vue.component('app-header', {
+    template: '<div>A custom component!</div>'
+})
+```	
+
+*第二种（手动绑定外置html）*
+
+```
+<script type="text/x-template" id="head-template">
+  <div class="head">
+    <h1>{{ title }}</h1>
+  </div>
+</script>
+
+Vue.component('app-header', {
+    template: '#head-template',
+    data: {
+        title: '我是頭部'
+    }
+})
+```	
+
+*第三种（借助官方vue-cli编译自动绑定外置html）*
+
+```
+<template>
+  <div class="header">
+    <h1> {{ title }} </h1>
+  </div>
+</template>
+
+<script>
+  export defualt {
+    data: function() {
+      return {
+        title: '我是頭部'
+      }
+    }
+  }
+</script>
+
+<style>
+  .header {
+    color: red;
+  }
+</style>
+```	
+
+*子组件可以绑定时定义*
+
+```
+var Parent = Vue.extend({
+    template: '<div>I\'m Parent, My children: <myComponent></myComponent><child></child></div>',
+    components: {
+        'myComponent': {
+            template: '<div>child component!</div>',
+        },
+        'child': {
+            template: '<div>child component!</div>',
+        }
+    }
+});
+```
