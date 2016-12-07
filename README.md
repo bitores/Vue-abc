@@ -9,6 +9,7 @@
 	npm install -g webpack
 	3、创建项目模板
 	vue init webpack vue-demo
+	vue init vuxjs/webpack vue-demo
 	4、进入项目目录
 	cd vue-demo
 	5、安装依赖包
@@ -184,10 +185,16 @@ new Vue({
 3. 自定义组件
 	
 	Vue.component('child', {
-
+		
+		<!-- 接收属性传参 -->
 		props:['msg',myMessage],
 
-		template: '<span>{{msg}}</span>'
+		template: '<span>{{msg}}</span>',
+
+		<!-- 初始数据 - 私有的状态 -->
+		data: 
+
+		
 	})
 
 	<!-- 重要：使用连字符分隔的名称！ -->
