@@ -47,6 +47,8 @@
 
 ##[Vue.js 源码学习笔记](http://www.open-open.com/lib/view/open1439344021458.html)
 
+##[vue 进行笔记](http://www.cnblogs.com/thyong/p/5274748.html)
+
 
 ## new Vue 与 Vue.extend 区别
 
@@ -55,6 +57,7 @@
 
 
 ##[Vuex 笔记](http://zhenyong.site/2016/07/30/vuex-q-and-a/)
+
 
 
 *VueX*
@@ -124,25 +127,29 @@ new VueX.Store({
 		count:0
 	},
 	mutations:{
-	inc: state=>state.count++,
-	dec: state=>state.count--
-}
+		inc: state=>state.count++,
+		dec: state=>state.count--
+	}
 })
 
 new Vue({
 	method:{
-	inc(){
-		store.commit('inc')
-	},
-	dec(){
-		store.commit('dec')
+		inc(){
+			store.commit('inc')
+		},
+		dec(){
+			store.commit('dec')
+		}
 	}
-}
 })
 
 
-假设有这样一个场景：我们有一个父组件，同时包含两个子组件。父组件可以很容易的通过使用 props 属性来向子组件传递数据。
-但是问题来了，当我们的两个子组件如何和对方互相通信的？ 或者子组件如何传递数据给他父组件的？在我们的项目很小的时候，这个两个问题都不会太难，因为我们可以通过事件派发和监听来完成父组件和子组件的通信。
+假设有这样一个场景：
+	我们有一个父组件，同时包含两个子组件。父组件可以很容易的通过使用 props 属性来向子组件传递数据。
+
+但是问题来了，
+	当我们的两个子组件如何和对方互相通信的？ 或者子组件如何传递数据给他父组件的？在我们的项目很小的时候，这个两个问题都不会太难，因为我们可以通过事件派发和监听来完成父组件和子组件的通信。
+
 然而，随着我们项目的增长：
 1、保持对所有的事件追踪将变得很困难。到底哪个事件是哪个组件派发的，哪个组件该监听哪个事件？
 2、项目逻辑分散在各个组件当中，很容易导致逻辑的混乱，不利于我们项目的维护。
@@ -253,12 +260,12 @@ new Vue({
 
 ###简单注册一个组件
 
-*外部注册组件*
+*外部定义并注册组件*
 	Vue.component('my-component', {
 		template: '<div>A custom component!</div>'
 	})
 
-*局部注册（内部注册）*
+*局部定义并注册（内部注册）*
 
 	var Parent = Vue.extend({
 	  components: {
@@ -269,7 +276,7 @@ new Vue({
 	})
 
 
-###借组Vue.extend生成的组件来注册
+###借组Vue.extend生成的组件来注册（定义与注册分开）
 
 1、使用Vue.extend方法创建一个组件
 
@@ -365,7 +372,10 @@ Vue.component('app-header', {
 Vue.component('app-header', {
     template: '#head-template',
     data: {
-        title: '我是頭部'
+        title: '我是頭部',
+        name:'zhang',
+        city:'Beijing',
+        content:'these are some desc about Blog'
     }
 })
 ```	
