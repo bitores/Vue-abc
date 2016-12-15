@@ -5,6 +5,9 @@ import VueResource from 'vue-resource';
 import App from './App.vue'
 import router from './router/router.js';
 
+
+import store from './vuex/store';
+
 // 开启 debug 模式
 Vue.config.debug = true;
 
@@ -14,6 +17,7 @@ Vue.use(VueResource)
 
 // 创建一个App实例，并挂载到选择符 #app 匹配的元素上
 new Vue({
+  store, // 注入到所有子组件
   el: '#app',
   router,
   render: h => h(App),

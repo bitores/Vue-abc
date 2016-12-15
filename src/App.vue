@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <h1 @click="addNote">action click</h1>
     <h1 @click="getParams">Route Alias</h1>
     <ul>
       <li>
@@ -34,6 +35,8 @@
 import Vue from 'vue';
 import Inner from './components/Inner.vue';
 
+import {mapActions} from 'vuex';
+
 var Child = { // 外定义， 内注册
   template: '<div>A custom component! —— child</div>'
 } 
@@ -60,6 +63,7 @@ Vue.component('child2', { // 外定义，外注册
 export default {
   name: 'app',
   data () {
+    console.log(this.$store);
     return {
       msg: 'Welcome to Your Vue.js App'
     }
@@ -79,10 +83,16 @@ export default {
     }
   },
 
-  methods: {
+  methods: 
+  {
      getParams() {
         console.log(this.$route.params)
-     }
+     },
+
+     // addNote(){
+     //   this.$store.dispatch('ADD_NOTE')
+     // }
+     ...mapActions(['addNote'])
   },
 
   components: {
@@ -94,6 +104,20 @@ export default {
     child5,
     // child6,
     // myChild
+  },
+
+  vuex: {
+    getters: { // getters：组件内部获取 store 中状态的函数
+      // 
+      activeNote: state => state.activeNote
+    },
+
+    actions: { // actions：组件内部获取 mutations 事件的函数
+      // dispatch...
+      // 关于 '...' es6 语法的解析，需要安装babel-plugin-transform-object-rest-spread
+      // 并修改 .babelrc 文件 ，增加 "plugins": ["transform-object-rest-spread"]
+      
+    }
   }
 }
 </script>

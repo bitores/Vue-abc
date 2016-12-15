@@ -10,7 +10,6 @@
 		// 	named: "Inner"
 		// }
 
-
 		data() {
 			return {
 				named: "Inner"
